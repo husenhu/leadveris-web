@@ -122,8 +122,8 @@
     </nav>
 
     <section class="relative pt-32 pb-20 px-6 overflow-hidden">
-        <div class="blob -top-20 -left-20"></div>
-        <div class="blob top-1/2 -right-20"></div>
+        <div class="blob -top-20 -left-20" data-parallax-speed="0.2"></div>
+        <div class="blob top-1/2 -right-20" data-parallax-speed="-0.15"></div>
 
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             <div class="reveal">
@@ -168,7 +168,7 @@
                 </div>
             </div>
 
-            <div class="reveal relative animate-float">
+            <div class="reveal relative animate-float" data-parallax-speed="0.05">
                 <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-white/20">
                     <img src="img/hero.png" alt="Dashboard Mockup" class="w-full h-auto object-cover">
                     <!-- Dashboard Overlay elements for "vibe" -->
@@ -648,33 +648,69 @@
         // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Reveal Animation Logic
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
+        // Scroll Animation Engine
+        const scrollElements = document.querySelectorAll('.reveal');
+        const parallaxElements = document.querySelectorAll('[data-parallax-speed]');
+
+        const handleScrollAnimations = () => {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            // 1. Reveal Animation (Intersection-based)
+            scrollElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 100;
                 if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+                    el.classList.add('active');
                 }
+            });
+
+            // 2. Parallax / Scrub Animation (Scroll-bound)
+            parallaxElements.forEach(el => {
+                const speed = parseFloat(el.getAttribute('data-parallax-speed'));
+                const yPos = scrollY * speed;
+                
+                // Hero Image special handling (scale + rotate)
+                if (el.classList.contains('animate-float')) {
+                    const scale = 1 + (scrollY / 5000);
+                    const rotate = scrollY / 50;
+                    el.style.transform = `translateY(${yPos}px) scale(${scale}) rotate(${rotate}deg)`;
+                } else {
+                    el.style.transform = `translateY(${yPos}px)`;
+                }
+            });
+        };
+
+        // Smooth scroll-bound handling using requestAnimationFrame
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleScrollAnimations();
+                    ticking = false;
+                });
+                ticking = true;
             }
-        }
+        });
 
-        window.addEventListener("scroll", reveal);
-
-        // Initial check for elements in viewport on load
-        window.onload = function () {
-            reveal();
-        }
+        // Initial check
+        window.onload = () => {
+            handleScrollAnimations();
+        };
 
         // Smooth Scroll handling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
