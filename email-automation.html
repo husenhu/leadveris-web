@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketplace Addons - Leadveris</title>
+    <title>Email Automation - Leadveris</title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -32,13 +32,6 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .glass-dark {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -54,23 +47,10 @@
             position: absolute;
             width: 500px;
             height: 500px;
-            background: linear-gradient(180deg, rgba(56, 189, 248, 0.2) 0%, rgba(56, 189, 248, 0) 100%);
+            background: linear-gradient(180deg, rgba(168, 85, 247, 0.2) 0%, rgba(168, 85, 247, 0) 100%);
             filter: blur(80px);
             border-radius: 50%;
             z-index: -1;
-        }
-
-        .cta-shadow {
-            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.4);
-        }
-
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -10px rgba(56, 189, 248, 0.15);
-        }
-
-        .badge-premium {
-            background: linear-gradient(90deg, #38BDF8 0%, #818CF8 100%);
         }
 
         /* Custom scrollbar */
@@ -88,7 +68,7 @@
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #38BDF8;
+            background: #A855F7;
         }
     </style>
 </head>
@@ -99,8 +79,7 @@
     <nav class="fixed top-0 w-full z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto">
             <div class="glass rounded-2xl px-4 py-3 md:px-6 flex justify-between items-center shadow-sm">
-                <div class="flex items-center space-x-2 md:space-x-3 cursor-pointer"
-                    onclick="window.location.href='index.html'">
+                <div class="flex items-center space-x-2 md:space-x-3 cursor-pointer" onclick="window.location.href='index.html'">
                     <img src="img/logo.png" alt="Leadveris Logo"
                         class="w-8 h-8 md:w-10 md:h-10 rounded-xl shadow-md object-cover">
                     <span class="text-xl md:text-2xl font-extrabold tracking-tight text-slate-900">Leadveris</span>
@@ -108,7 +87,7 @@
 
                 <div class="hidden md:flex space-x-8 font-medium text-slate-600">
                     <a href="index.html#features" class="hover:text-sky-500 transition-colors">Fitur</a>
-                    <a href="marketplace.html" class="text-sky-500 transition-colors font-bold">Marketplace</a>
+                    <a href="marketplace.html" class="hover:text-sky-500 transition-colors">Marketplace</a>
                     <a href="index.html#pricing" class="hover:text-sky-500 transition-colors">Harga</a>
                 </div>
 
@@ -122,139 +101,99 @@
         </div>
     </nav>
 
-    <!-- Header Section -->
+    <!-- Hero Section -->
     <section class="relative pt-48 pb-24 px-6 overflow-hidden">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
-            <img src="img/marketplace-bg.png" alt="Background" class="w-full h-full object-cover opacity-20">
+            <img src="img/email-automation-bg.png" alt="Background" class="w-full h-full object-cover opacity-20">
             <div class="absolute inset-0 bg-gradient-to-b from-slate-50/0 via-slate-50/50 to-[#F8FAFC]"></div>
         </div>
-
+        
         <div class="blob -top-20 -left-20" style="opacity: 0.3;"></div>
-
+        
         <div class="max-w-7xl mx-auto text-center relative z-10 reveal active">
-            <div
-                class="inline-flex items-center space-x-2 bg-sky-100 text-sky-700 px-4 py-1.5 rounded-full text-sm font-bold mb-6 shadow-sm border border-sky-200">
-                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-                <span>Addon Marketplace</span>
+            <div class="inline-flex items-center space-x-2 bg-purple-100 text-purple-700 px-4 py-1.5 rounded-full text-sm font-bold mb-6 shadow-sm border border-purple-200">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                <span>Email Automation</span>
             </div>
             <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
-                Ekspansi Bisnis Anda dengan <span class="text-sky-500">Modular Addons</span>.
+                Komunikasi Profesional yang <span class="text-purple-600">Personal</span>.
             </h1>
-            <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto font-medium">
-                Tambahkan fitur khusus sesuai kebutuhan operasional Anda. Hanya bayar untuk apa yang Anda gunakan.
+            <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-3xl mx-auto font-medium">
+                Bangun komunikasi profesional yang personal dan terukur dengan solusi email marketing berbasis infrastruktur cloud yang handal.
             </p>
         </div>
     </section>
 
-    <!-- Marketplace Grid -->
+    <!-- Main Content: Features Grid -->
     <section class="py-20 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- SalesFlow Addon Card -->
-                <div
-                    class="reveal glass rounded-[32px] overflow-hidden flex flex-col border border-slate-200 card-hover transition-all duration-300">
-                    <div class="relative h-48 bg-slate-100 overflow-hidden group">
-                        <img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?auto=format&fit=crop&q=80&w=800"
-                            alt="SalesFlow Kanban"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-                        <div class="absolute bottom-4 left-6">
-                            <span
-                                class="badge-premium text-white text-[10px] uppercase font-bold px-3 py-1 rounded-full">Recommended</span>
-                        </div>
+                
+                <!-- Massive Outreach -->
+                <div class="reveal glass p-8 rounded-[32px] border border-slate-200 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:bg-purple-500 group-hover:text-white transition-all">
+                        <i data-lucide="send" class="w-7 h-7"></i>
                     </div>
-
-                    <div class="p-8 flex-1 flex flex-col">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600">
-                                <i data-lucide="git-branch" class="w-6 h-6"></i>
-                            </div>
-                            <div class="text-right">
-                                <span class="block text-2xl font-bold text-slate-900">Rp 25.000</span>
-                                <span class="text-xs text-slate-500 font-medium italic">/month billed monthly</span>
-                            </div>
-                        </div>
-
-                        <h3 class="text-2xl font-bold text-slate-900 mb-3">SalesFlow (Kanban)</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Visualisasikan alur penjualan Anda dalam papan Kanban yang interaktif. Kelola setiap
-                            prospect dari tahap 'Baru' hingga 'Selesai' tanpa ada yang terlewatkan.
-                        </p>
-
-                        <div class="space-y-3 mb-8">
-                            <div class="flex items-center text-sm text-slate-600">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500 mr-3"></i>
-                                <span>Unlimited Data & Prospects</span>
-                            </div>
-                            <div class="flex items-center text-sm text-slate-600">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500 mr-3"></i>
-                                <span>Drag & Drop Deal Tracking</span>
-                            </div>
-                            <div class="flex items-center text-sm text-slate-600">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-green-500 mr-3"></i>
-                                <span>Automated Follow-up Reminders</span>
-                            </div>
-                        </div>
-
-                        <div class="bg-sky-50 rounded-2xl p-4 mb-8 border border-sky-100">
-                            <div class="flex justify-between items-center text-sky-900">
-                                <span class="text-sm font-bold">Yearly Savings</span>
-                                <span class="text-xs bg-sky-500 text-white px-2 py-0.5 rounded-full">-16%</span>
-                            </div>
-                            <div class="text-xl font-extrabold mt-1">Rp 250.000 <span
-                                    class="text-xs font-normal text-sky-700">/year</span></div>
-                        </div>
-
-                        <a href="https://wa.me/6281344022630?text=Halo%20Leadveris,%20saya%20ingin%20memesan%20Addon%20SalesFlow"
-                            class="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold hover:bg-sky-500 transition-all text-center flex items-center justify-center group shadow-lg">
-                            Order SalesFlow Now
-                            <i data-lucide="shopping-cart"
-                                class="ml-2 w-4 h-4 group-hover:scale-110 transition-transform"></i>
-                        </a>
-                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Massive Outreach via SMTP</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Kirim email massal dengan performa tinggi menggunakan protokol SMTP yang dioptimalkan untuk memastikan pesan Anda masuk ke kotak masuk (inbox) utama.
+                    </p>
                 </div>
 
-                <!-- Placeholder 1: CRM Sync -->
-                <div class="reveal glass rounded-[32px] overflow-hidden flex flex-col border border-slate-100 opacity-60 grayscale hover:grayscale-0 transition-all duration-300"
-                    style="transition-delay: 100ms;">
-                    <div class="p-8 flex-1 flex flex-col">
-                        <div
-                            class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-400 mb-6">
-                            <i data-lucide="layers" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-400 mb-3">Enterprise CRM Sync</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 italic">
-                            Singkronisasi dua arah dengan Salesforce, HubSpot, dan Zoho. Segera hadir untuk integrasi
-                            yang lebih dalam.
-                        </p>
-                        <div class="mt-auto">
-                            <span
-                                class="inline-block bg-slate-100 text-slate-400 text-[10px] uppercase font-bold px-4 py-1.5 rounded-full">Coming
-                                Soon</span>
-                        </div>
+                <!-- Smart Scheduling -->
+                <div class="reveal glass p-8 rounded-[32px] border border-slate-200 hover:shadow-xl transition-all duration-300 group" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 mb-6 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                        <i data-lucide="calendar-clock" class="w-7 h-7"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Smart Scheduling & Batching</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Kelola kampanye email Anda dengan fitur penjadwalan yang fleksibel untuk pengiriman instan maupun di masa mendatang.
+                    </p>
                 </div>
 
-                <!-- Placeholder 2: Advanced Analytics -->
-                <div class="reveal glass rounded-[32px] overflow-hidden flex flex-col border border-slate-100 opacity-60 grayscale hover:grayscale-0 transition-all duration-300"
-                    style="transition-delay: 200ms;">
-                    <div class="p-8 flex-1 flex flex-col">
-                        <div
-                            class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-400 mb-6">
-                            <i data-lucide="pie-chart" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-400 mb-3">Predictive Insights</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 italic">
-                            Analisis perilaku prospek berbasis AI untuk memprediksi probabilitas closing secara akurat.
-                        </p>
-                        <div class="mt-auto">
-                            <span
-                                class="inline-block bg-slate-100 text-slate-400 text-[10px] uppercase font-bold px-4 py-1.5 rounded-full">Under
-                                Development</span>
-                        </div>
+                <!-- Invalid Filter -->
+                <div class="reveal glass p-8 rounded-[32px] border border-slate-200 hover:shadow-xl transition-all duration-300 group" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-rose-100 rounded-2xl flex items-center justify-center text-rose-600 mb-6 group-hover:bg-rose-500 group-hover:text-white transition-all">
+                        <i data-lucide="filter-x" class="w-7 h-7"></i>
                     </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Automatic Invalid Filter</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Sistem kami secara cerdas memfilter dan mengecualikan kontak tanpa alamat email valid untuk menjaga kebersihan database dan reputasi pengiriman Anda.
+                    </p>
+                </div>
+
+                <!-- Birthday Greetings -->
+                <div class="reveal glass p-8 rounded-[32px] border border-slate-200 hover:shadow-xl transition-all duration-300 group" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                        <i data-lucide="cake" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Automated Birthday Greetings</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Kirim ucapan selamat ulang tahun otomatis dengan desain profesional untuk menjaga hubungan baik dengan pelanggan Anda setiap hari.
+                    </p>
+                </div>
+
+                <!-- Placeholder Handling -->
+                <div class="reveal glass p-8 rounded-[32px] border border-slate-200 hover:shadow-xl transition-all duration-300 group" style="transition-delay: 400ms;">
+                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 mb-6 group-hover:bg-orange-500 group-hover:text-white transition-all">
+                        <i data-lucide="user-cog" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Contextual Placeholder Handling</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Gunakan variabel dinamis (seperti nama pelanggan) untuk membuat setiap email terasa personal dan meningkatkan tingkat respon (engagement).
+                    </p>
+                </div>
+
+                <!-- Log Monitoring -->
+                <div class="reveal glass p-8 rounded-[32px] border border-slate-200 hover:shadow-xl transition-all duration-300 group" style="transition-delay: 500ms;">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-500 group-hover:text-white transition-all">
+                        <i data-lucide="layout-dashboard" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Centralized Log Monitoring</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Pantau seluruh riwayat pengiriman, status terkirim, hingga jadwal antrean melalui dashboard pemantauan yang terpusat dan transparan.
+                    </p>
                 </div>
 
             </div>
@@ -264,27 +203,24 @@
     <!-- Demo CTA Section -->
     <section class="py-24 px-6 relative overflow-hidden">
         <div class="max-w-5xl mx-auto glass-dark rounded-[40px] p-12 lg:p-20 text-center relative z-10 reveal active">
-            <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">Ingin Melihat Cara Kerjanya?</h2>
+            <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">Siap Memulai Kampanye Email Anda?</h2>
             <p class="text-slate-300 text-xl mb-10 max-w-2xl mx-auto">
-                Dapatkan akses demo eksklusif untuk mencoba seluruh fitur Addon Leadveris dan lihat bagaimana kami
-                membantu bisnis Anda tumbuh lebih cepat.
+                Tingkatkan kepercayaan pelanggan dan ROI pemasaran Anda melalui solusi Email Automation Leadveris yang terukur dan profesional.
             </p>
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="https://wa.me/6281344022630?text=Halo%20Leadveris,%20saya%20tertarik%20untuk%20melihat%20demo%20Addon%20Marketplace"
-                    class="w-full sm:w-auto bg-sky-500 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-sky-400 transition-all shadow-lg shadow-sky-500/20 text-center flex items-center justify-center">
-                    <i data-lucide="play-circle" class="mr-2 w-6 h-6"></i>
-                    Request Live Demo
+                <a href="https://wa.me/6281344022630?text=Halo%20Leadveris,%20saya%20tertarik%20untuk%20konsultasi%20layanan%20Email%20Automation"
+                    class="w-full sm:w-auto bg-purple-600 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-purple-500 transition-all shadow-lg shadow-purple-500/20 text-center flex items-center justify-center">
+                    <i data-lucide="mail-plus" class="mr-2 w-6 h-6"></i>
+                    Konsultasi Sekarang
                 </a>
-                <a href="https://wa.me/6281344022630?text=Halo%20Leadveris,%20saya%20ingin%20tanya-tanya%20mengenai%20Addon"
+                <a href="index.html#pricing"
                     class="w-full sm:w-auto border border-slate-500 text-slate-200 px-10 py-5 rounded-2xl font-bold text-xl hover:bg-slate-800 transition-all text-center">
-                    Tanya Sales
+                    Lihat Paket Harga
                 </a>
             </div>
         </div>
         <!-- Decorative Glow -->
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sky-500/20 blur-[120px] rounded-full -z-10">
-        </div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/10 blur-[120px] rounded-full -z-10"></div>
     </section>
 
     <!-- Footer -->
@@ -296,8 +232,7 @@
                     <span class="text-2xl font-bold text-white tracking-tight">Leadveris</span>
                 </div>
                 <p class="text-slate-400 max-w-sm mb-6 leading-relaxed">
-                    Maksimalkan konversi prospek dan jangkau audiens lebih luas melalui solusi marketing omnichannel
-                    yang cerdas dan terintegrasi.
+                    Maksimalkan konversi prospek dan jangkau audiens lebih luas melalui solusi marketing omnichannel yang cerdas dan terintegrasi.
                 </p>
                 <div class="flex space-x-4">
                     <a href="#"
@@ -340,7 +275,7 @@
                         class="font-bold text-white mb-6 uppercase text-sm tracking-widest border-b border-slate-800 pb-4">
                         Perusahaan</h4>
                     <ul class="space-y-0 text-slate-400 font-medium">
-                        <li><a href="about.html"
+                        <li><a href="#"
                                 class="block py-3 border-b border-slate-800/50 hover:text-sky-400 transition-colors">Tentang
                                 Leadveris</a></li>
                         <li><a href="policy.html"
